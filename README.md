@@ -1,5 +1,9 @@
 # RecipeResolution
+This application will feature a database designed to empower users, whom we refer to as "Creators," in the realm of recipe management. It will serve two primary functions: enabling Creators to save their own recipes and facilitating the discovery of recipes contributed by others.
 
+The database itself will efficiently store various essential data, including recipes, the specific ingredients required for each recipe, the quantities of these ingredients for precise preparation, and user account credentials. This centralized database system will greatly enhance the convenience of accessing recipes for users, allowing them to do so from virtually any location through their smartphones. Additionally, this application will enable users to organize multiple recipes, allowing them to create custom course menus for different occasions.
+
+# Running the program
 Run the Flask app using Python3 ```python app.py``` and navigate to the webpage indicated by the console
 
 # Schema
