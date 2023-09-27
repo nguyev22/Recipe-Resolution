@@ -1,0 +1,177 @@
+<html>
+    <head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+        <title>Recipe Resolution</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='bootstrap.min.css')}}"></link>    
+        <link rel="stylesheet" href="{{url_for('static', filename='global_style.css')}}"></link>    
+    </head>
+
+    
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    
+                    <a class="navbar-brand" href="/">Recipe Resolution</a>
+                    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link " href="/recipes">Recipes</a>
+                        </li>
+        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/ingredients">Ingredients</a>
+                        </li>
+        
+                        <li class="nav-item">
+                            <a class="nav-link " href="/creators">Creators</a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="/passwords">Passwords</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="/recipe_components">Recipe Components</a>
+                        </li>
+
+        
+                        
+                </div>
+            </nav>
+        </header>
+
+        <content class="container">
+            {% if recipe %}
+            <h1>Modify Recipe</h1>
+            
+            {%else%}
+            <h1>New Recipe</h1>
+            {%endif%}
+            <div class="card p-3">
+
+                <div class="input-group">
+                    <label for="name" class="input-group-text">Recipe Name</label>
+                    <input id="name" class="form-control" {% if recipe %} value="{{recipe.name}}" {% endif%}>
+                </div>
+
+                <div>
+
+                    <div class="input-group my-2">
+                        <label class="input-group-text" for="">Creator</label>
+                        <select class="form-select" id="creator_select" {% if recipe %} value="{{recipe.creatorID}}" {% endif%}>
+                            {% if recipe %}
+                            <option value="{{recipe.creatorID}}">{{recipe.creator}}</option>
+                            {% endif%}
+                        </select>
+                        
+                        <label class="input-group-text" for="">Public/Private</label>
+                        <select class="form-select" id="private_select" {% if recipe %} value="{{recipe.required}}" {% endif%}>
+                            <option value=0>Public</option>
+                            <option value=1>Private</option>
+                        </select>
+                    </div>
+
+                    <form class="form-floating my-2">
+                        <textarea class="form-control" id="description" placeholder="" style="min-height:35vh">{% if recipe %}{{recipe.description}} {% endif%}</textarea>
+                        <label for="description" >Description</label>
+                    </form>
+
+                </div>
+        
+                <table id="ingredients_table" class="table table-striped">
+                    <thead>
+                        <th class="w-40" scope="col">Ingredient</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Units</th>
+                        <th scope="col">Required</th>
+                    </thead>
+
+                    <tbody id="table_body">
+                        <tr id="hidden_ingredient_template" hidden>
+                            <td>
+                                <select class="form-select ingredient_select" placeholder="Select Ingredient"></select>
+                            </td>
+                            <td>
+                                <input class="form-control ingredient_quantity" type="number" min="0" placeholder="#">
+                            </td>
+                            <td>
+                                <input class="form-control ingredient_unit" type="text" placeholder="units">
+                            </td>
+                            <td>
+                                    <select class="form-select required_select" value=1>
+                                        <option value=1>Yes</option>
+                                        <option value=0>No</option>
+                                    </select>
+                            </td>
+                        </tr>
+
+                        {% if recipe %}
+                        {% for ingredient in recipe.ingredients %}
+
+                        <tr>
+                            <td>
+                                <select class="form-select ingredient_select" placeholder="Select Ingredient" value="{{ ingredient.id }}"><option value={{ingredient.id}}>placeholder</option></select>
+                            </td>
+                            <td>
+                                <input class="form-control ingredient_quantity" type="number" min="0" placeholder="#" value="{{ingredient.quantity}}">
+                            </td>
+                            <td>
+                                <input class="form-control ingredient_unit" type="text" placeholder="units" value="{{ingredient.unit}}">
+                            </td>
+                            <td>
+                                    <select class="form-select  required_select" value="{{ingredient.required}}">
+                                        <option value=1>Yes</option>
+                                        <option value=0>No</option>
+                                    </select>
+                            </td>
+                        </tr>
+
+                        {% endfor %}
+                        {% endif %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>
+                                <button id="add_ingredient" type="button" class="btn btn-sm btn-outline-danger">+</button>
+                            </td>
+                            <td>
+                                Need more ingredient options? Add more at 
+                                <a href="/ingredients" target="blank">Ingredients</a>
+                            </td>
+                            <td>
+                                <button id="refresh_ingredients" class="btn btn-sm btn-outline-secondary">
+                                    Refresh
+                                </button>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>                
+            
+                <div class="my-2">
+                    <button id="submit_btn" class="btn btn-sm btn-primary">
+                        Submit
+                    </button>
+                </div>
+
+            </div>
+
+            
+            
+
+        </content>
+        
+    </body>
+
+    <script src="{{url_for('static', filename='bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='utility.js')}}"></script>
+    <script src="{{url_for('static', filename='create_recipe.js')}}"></script>
+</html>

@@ -1,0 +1,96 @@
+<html>
+    <head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+        <title>Recipe Resolution</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='bootstrap.min.css')}}"></link>    
+        <link rel="stylesheet" href="{{url_for('static', filename='global_style.css')}}"></link>    
+        
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    
+                    <a class="navbar-brand" href="/">Recipe Resolution</a>
+                    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link " href="/recipes">Recipes</a>
+                        </li>
+        
+                        <li class="nav-item">
+                            <a class="nav-link " href="/ingredients">Ingredients</a>
+                        </li>
+        
+                        <li class="nav-item">
+                            <a class="nav-link " href="/creators">Creators</a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="/passwords">Passwords</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="/recipe_components">Recipe Components</a>
+                        </li>
+
+        
+                </div>
+            </nav>
+        </header>
+
+        <content class="container">
+            <h1>View Recipes</h1>
+
+            <div class="card p-3">
+
+                <div class="input-group my-2">
+                    <label class="input-group-text" for="">Search by Creator</label>
+                    <select class="form-select" id="creator_select"></select>
+                    <button class="btn btn-sm btn-outline-success" type="button" id="search_creator">Search</button>
+                </div>
+
+                <div class="input-group my-2">
+                    <label class="input-group-text" for="">Search by Ingredient</label>
+                    <select class="form-select" id="ingredient_select"></select>
+                    <button class="btn btn-sm btn-outline-success" type="button" id="search_ingredient">Search</button>
+                </div>
+
+                <table id="table" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th schope="col">ID</th>
+                            <th scope="col">Recipe</th>
+                            <th scope="col">Number of Ingredients</th>
+                            <th scope="col">Creator</th>
+                            <th scope="col">Public/Private</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">View</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_body">
+
+                    </tbody>
+                </table>
+
+                <div>
+                    <button class="my-1 btn btn-outline-primary" id="create_recipe_btn">Create New Recipe</button>
+                </div>
+
+            </div>
+        </content>
+        
+    </body>
+
+    <script src="{{url_for('static', filename='bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='utility.js')}}"></script>
+    <script src="{{url_for('static', filename='recipes.js')}}"></script>
+</html>

@@ -1,0 +1,100 @@
+<html>
+    <head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+        <title>Recipe Resolution</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='bootstrap.min.css')}}"></link>    
+        <link rel="stylesheet" href="{{url_for('static', filename='global_style.css')}}"></link>    
+    </head>
+
+    
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    
+                    <a class="navbar-brand" href="/">Recipe Resolution</a>
+                    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/recipes">Recipes</a>
+                        </li>
+        
+                        <li class="nav-item">
+                            <a class="nav-link " href="/ingredients">Ingredients</a>
+                        </li>
+        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/creators">Creators</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="/passwords">Passwords</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="/recipe_components">Recipe Components</a>
+                        </li>
+        
+                        
+                </div>
+            </nav>
+        </header>
+
+        <content class="container">
+            <h1>Ingredients</h1>
+
+            <div class="card p-3">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Min Recipe Count</span>
+                    <input id="filter_min" type="number" class="form-control" placeholder="min" min=0 value="0">
+                    <span class="input-group-text">Max Recipe Count</span>
+                    <input id="filter_max" type="text" class="form-control" placeholder="max">
+                    <button id="filter_btn" class="btn btn-sm btn-outline-success">Filter Ingredients</button>
+                  </div>
+
+                <table id="table" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Used in Recipes</th>
+                            <th scope="col">View Recipes</th>
+                            <th scope="col">Update</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_body">
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                <div class="input-group">
+                                    <label class="input-group-text" for="new_ingredient_name">Ingredient Name</label>
+                                    <input id="new_ingredient_name" class="form-control">
+                                    <button id="new_ingredient_btn" class="btn btn-sm btn-outline-primary">Create</button>
+                                </div>
+                                <div id="error_message" class="text-danger"></div>
+                            </td>
+                        </tr>
+                            
+                    </tfoot>
+                </table>
+                
+
+            </div>
+        </content>
+        
+    </body>
+
+    <script src="{{url_for('static', filename='bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='utility.js')}}"></script>
+    <script src="{{url_for('static', filename='ingredients.js')}}"></script>
+</html>

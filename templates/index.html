@@ -1,0 +1,107 @@
+<html>
+    <head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+        <title>Recipe Resolution</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='bootstrap.min.css')}}"></link>    
+        <link rel="stylesheet" href="{{url_for('static', filename='global_style.css')}}"></link>    
+
+    </head>
+
+    
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    
+                    <a class="navbar-brand" href="/">Recipe Resolution</a>
+                    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link " href="/recipes">Recipes</a>
+                        </li>
+        
+                        <li class="nav-item">
+                            <a class="nav-link " href="/ingredients">Ingredients</a>
+                        </li>
+        
+                        <li class="nav-item">
+                            <a class="nav-link " href="/creators">Creators</a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="/passwords">Passwords</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="/recipe_components">Recipe Components</a>
+                        </li>
+
+                        
+                </div>
+            </nav>
+        </header>
+
+        <content class="container">
+                
+                    <h1>
+                        Home Page
+                    </h1>
+                    <div class="card p-3">
+                    Recipe Resolution provides a platform for users who want to store their recipes, the ingredients used in their recipes, the quantity of ingredients per recipe, and their user credentials.
+                    <br>With a readily available database that is more storage efficient than manual methods, you can access your recipes anywhere with your smartphone!<br>
+
+
+                    <table id="table" class="table table-striped" align="left">
+                    
+                        <thead>
+                            <tr>
+                                <th scope="col">Table Name</th>
+                                <th scope="col">Description</th>
+                            </tr>
+                        </thead>
+                        
+    
+                        <tbody>
+                            <tr>
+                                <td>Recipes</td>
+                                <td> Records the details of recipes in the database</td>
+                            </tr>
+                            <tr>
+                                <td>RecipeComponents</td>
+                                <td>Records an ingredient’s measurements inside a recipe</td>
+                            </tr>
+                            <tr>
+                                <td>Ingredients</td>
+                                <td>Records the ingredients used</td>
+                            </tr>
+                            <tr>
+                                <td>Creators</td>
+                                <td>Records the creator who submits Recipes</td>
+                            </tr>
+                            <tr>
+                                <td>Passwords</td>
+                                <td>Records the password for a Creator</td>
+                            </tr>
+    
+                        </tbody>
+                    </table>
+                </div>
+                                   
+            </content>
+    <br>
+    <br>
+    <!-- Create table with Entity names and their Description -->
+        </content>
+        
+    </body>
+
+    <script src="{{url_for('static', filename='bootstrap.bundle.min.js')}}"></script>
+</html>
