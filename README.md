@@ -10,6 +10,8 @@ Run the Flask app using Python3 ```python app.py``` and navigate to the webpage 
 ![image](https://github.com/nguyev22/CS340_Project/assets/67074497/63f4ee9f-3490-402d-b7c9-87e8f91ed96c)
 
 # UI Snapshots
+![image](https://github.com/nguyev22/Recipe-Resolution/assets/67074497/3f4d75ce-2cb1-4310-9660-a9443e478a25)
+
 ![image](https://github.com/nguyev22/CS340_Project/assets/67074497/84bf3696-c6f1-4759-92d8-ec5fbc950be8)
 ![image](https://github.com/nguyev22/CS340_Project/assets/67074497/732570df-e3d4-410b-bd1b-86c9843e8eab)
 ![image](https://github.com/nguyev22/CS340_Project/assets/67074497/08940fd1-54f1-44c4-97c5-76516f9b301c)
