@@ -1,2 +1,3 @@
-# CS340_Project
-Recipe Resolution, an app to solve your recipe madness.
+# RecipeResolution
+
+Run the Flask app using Python3 ```python app.py``` and navigate to the webpage indicated by the console
